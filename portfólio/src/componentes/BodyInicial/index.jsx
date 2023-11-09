@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { keyframes } from 'styled-components';
 import {BsArrowRight} from'react-icons/bs'
 
 const ImagemEu = styled.img.attrs({
@@ -13,37 +14,43 @@ const ImagemEu = styled.img.attrs({
     bottom: 0%;
     width: 32rem;`
 
+const AlinhamentoImagem = styled.div`
+  
+  position: relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  right: 9%;
+  
+  `
+  const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  
+  to {
+    transform: rotate(359deg);
+  }
+  `;
+
 const ImagemProject = styled.img.attrs({
+
 src:'/src/componentes/BodyInIcial/projects.png',})`
-    position: relative;
-    display: relative;
-    overflow: auto;
-    box-sizing: border-box;
-    width: 12rem;
-    animation: rotate 10s linear infinite;
-
-    @keyframes rotate {
-				from {
-					transform: rotate(0deg);
-				}
-
-				to {
-					transform: rotate(359deg);
-				}
-			}
+width: 12rem;
+position: relative;
+bottom: 5%;
+animation: ${rotate} 10s linear infinite;
 `
 
-const Seta = styled.div`
-  position: absolute;
+ 
+
+const Seta = styled.p`
   color: #fa0303;
   font-size: 50px;
-  top: 79%;
-  left: 31%;
-  transform: translate(-50%, -50%);
-
+  position: absolute;
 
   &:hover {
-    /* animation: rightMove 0.3s linear forwards; */
+    animation: rightMove 0.3s linear forwards;
     cursor: pointer;
   }
 
@@ -58,28 +65,19 @@ const Seta = styled.div`
   }
 `;
 
+
 const AlinhamentoConteudo = styled.section`
 display:flex;
-flex-direction:row;
 height: 100%vh;
-
 `
 
 const Titulo = styled.h1`
-overflow: hidding;
 color: white;
 font-size: 40px;
 animation: typing 10s;
-
-@keyframes typing{
- from{
-  witdth: 0;
- }
-}
 `
 
 const AlinhamentoTexto = styled.div`
-position: relative;
 display:flex;
 flex-direction: column;
 width: 65%;
@@ -100,10 +98,12 @@ export function Intro(){
 <AlinhamentoTexto>
 <Titulo>Transforming Ideas Into <Color>Digital Reality </Color></Titulo>
 <Texto>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea alias eaque sit minus harum illo, incidunt sed porro obcaecati. Unde officia expedita laudantium! Rerum porro corporis tempora officiis incidunt. Dolore?</Texto>
+<AlinhamentoImagem>
 <ImagemProject/>
 <Seta>
 <BsArrowRight/>
 </Seta>
+</AlinhamentoImagem>
 </AlinhamentoTexto>
 <ImagemEu/>
 </AlinhamentoConteudo>)}

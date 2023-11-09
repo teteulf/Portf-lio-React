@@ -21,7 +21,6 @@ animation-fill-mode: forwards; */
 &::-webkit-scrollbar {
   display: none;}
 
-
 @media (max-width: 643px) {
     margin: 0% 0%;
 }

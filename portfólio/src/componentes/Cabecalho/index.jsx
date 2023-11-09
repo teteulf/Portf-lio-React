@@ -85,11 +85,7 @@ cursor: pointer;}
   align-items: center;
   justify-content: center;
   right: 20%;
-
-
-  
   font-size: 18px;
-
 }
 `
 
