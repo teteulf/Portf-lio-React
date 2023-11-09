@@ -20,7 +20,7 @@ const AlinhamentoImagem = styled.div`
   display:flex;
   justify-content: center;
   align-items: center;
-  right: 9%;
+  right: 3%;
   
   `
   const rotate = keyframes`
@@ -80,13 +80,12 @@ animation: typing 10s;
 const AlinhamentoTexto = styled.div`
 display:flex;
 flex-direction: column;
-width: 65%;
+width: 390px;
 `
 
 const Texto = styled.p`
 color: white;
-font-size: 15px;
-width: 390px`
+font-size: 15px;`
 
 const Color = styled.strong`
 color: red;`
