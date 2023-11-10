@@ -26,21 +26,28 @@ const EstilizacaoIcones = styled.div`
     left: 96%;
     color: white;
 
-@media (max-width: 643px) {
-    
-margin: 55% 0% 0% 137%;}`
+@media (max-width: 900px) {
+flex-direction: row;
+border-radius: 0px;
+width: 100%;
+height: 50px;
+gap: 20%;
+justify-content: center;
+top: 95%;
+left: 0%;
+
+}`
     
 
 const PopUp = styled.div`
     position: absolute;
-    display: inline-block;
     background-color:white;
     align-items: center;
     text-align: center;
-    width: 87px;
+    width: 93px;
     height: 23px;
     left: -103px;
-    padding: 5px 8px 0px 0px;
+    padding: 3px 8px 0px 0px;
     font-size: 12px;
     border-radius: 5px;
     font-weight: bold;
@@ -54,13 +61,10 @@ const PopUp = styled.div`
     background-color:white;
     border: 2px solid;
     border-color:transparent #ffffff #ffffff transparent;
-    display:block;
     position: absolute;
     left: 90px;
     bottom: 8.5px;
     transform: rotate(45deg);
-    
-
 }
 `
 const NavContainer =  styled.div`

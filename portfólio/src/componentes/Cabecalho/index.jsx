@@ -82,9 +82,7 @@ cursor: pointer;}
 
 @media (max-width: 786px) {
   position: relative;
-  align-items: center;
-  justify-content: center;
-  right: 20%;
+  right: 4%;
   font-size: 18px;
 }
 `
@@ -104,8 +102,10 @@ export function Cabecalho() {
           initial="hidden"
           animate="visible">
           <Icones>   
-          <motion.li  variants={item}>
+          <motion.li variants={item}>
+              <a href="https://discord.com/" target="blank" style={{color: 'white'}}>
               <BsDiscord/>
+              </a>
           </motion.li>
           <motion.li variants={item}>
               <BsWhatsapp/>

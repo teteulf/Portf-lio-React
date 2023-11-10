@@ -1,18 +1,35 @@
 import styled from 'styled-components';
 import { keyframes } from 'styled-components';
 import {BsArrowRight} from'react-icons/bs'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const ImagemEu = styled.img.attrs({
     src:'/src/componentes/BodyInIcial/i.png',
   })`
-    display: block;
     position: fixed;
     max-width: 100%;
     max-height:100%;
-    overflow: auto;
     right: 10%;
     bottom: 0%;
-    width: 32rem;`
+    width: 32rem;
+    
+    @media (min-height: 650px){
+      width: 42rem;
+      right: 3%;
+    }
+
+   @media (min-height: 1000px){
+    width: 62rem;
+    right: 8%;
+ 
+
+    }
+
+
+    @media (max-width: 1111px) {
+      visibility: hidden;
+    }
+    `
 
 const AlinhamentoImagem = styled.div`
   
@@ -20,7 +37,6 @@ const AlinhamentoImagem = styled.div`
   display:flex;
   justify-content: center;
   align-items: center;
-  right: 3%;
   
   `
   const rotate = keyframes`
@@ -36,17 +52,15 @@ const AlinhamentoImagem = styled.div`
 const ImagemProject = styled.img.attrs({
 
 src:'/src/componentes/BodyInIcial/projects.png',})`
-width: 12rem;
+width: 10rem;
 position: relative;
 bottom: 5%;
 animation: ${rotate} 10s linear infinite;
 `
 
- 
-
 const Seta = styled.p`
   color: #fa0303;
-  font-size: 50px;
+  font-size: 40px;
   position: absolute;
 
   &:hover {
@@ -65,38 +79,75 @@ const Seta = styled.p`
   }
 `;
 
-
 const AlinhamentoConteudo = styled.section`
-display:flex;
-height: 100%vh;
+
+ display:flex;
+
+@media (max-width: 1111px) {
+
+  align-items:center;
+  justify-content: center;
+}
+@media (min-height: 750px) {
+  margin-top: 5%;
+}
+@media (min-height: 1000px){
+
+}
+
+
 `
 
 const Titulo = styled.h1`
+align-items: center;
 color: white;
 font-size: 40px;
 animation: typing 10s;
-`
+
+@media (min-height: 1000px){
+ font-size: 60px;
+}`
 
 const AlinhamentoTexto = styled.div`
 display:flex;
+position: relative;
 flex-direction: column;
+margin: 15% 0% 0% 0%;
 width: 390px;
+
+@media (min-height: 750px){
+  width: 450px;
+}
+
+@media (min-height: 1000px){
+width: 620px
+}
 `
 
 const Texto = styled.p`
 color: white;
-font-size: 15px;`
+font-size: 15px;
+
+@media (min-height: 750px){
+ font-size: 20px;}
+
+ @media (min-height: 1000px){
+  font-size: 30px;
+
+
+ }
+`
 
 const Color = styled.strong`
-color: red;`
-
+color: red;
+`
 
 export function Intro(){
     return(
 <AlinhamentoConteudo>
-<AlinhamentoTexto>
-<Titulo>Transforming Ideas Into <Color>Digital Reality </Color></Titulo>
-<Texto>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea alias eaque sit minus harum illo, incidunt sed porro obcaecati. Unde officia expedita laudantium! Rerum porro corporis tempora officiis incidunt. Dolore?</Texto>
+<AlinhamentoTexto className='text-center'>
+<Titulo >Transforming Ideas Into <Color>Digital Reality </Color></Titulo>
+<Texto > Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, impedit ducimus dicta explicabo deserunt unde nobis voluptas natus quam tenetur quia delectus at deleniti adipisci, atque doloremque quae. Facere, aliquam.</Texto>
 <AlinhamentoImagem>
 <ImagemProject/>
 <Seta>

@@ -9,7 +9,6 @@ html{margin: 0;
 body{margin: 0 20%;
 box-sizing: border-box;
 height: 100vh;
-padding: 0 3em;
 background-color: #000014;
 scrollbar-width: none;
 overflow: hidden;
