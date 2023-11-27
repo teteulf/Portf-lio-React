@@ -4,7 +4,7 @@ import {BsArrowRight} from'react-icons/bs'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const ImagemEu = styled.img.attrs({
-    src:'/src/componentes/BodyInIcial/i.png',
+    src:'/src/componentes/BodyInIcial/i3.png',
   })`
     position: fixed;
     max-width: 100%;
@@ -21,8 +21,6 @@ const ImagemEu = styled.img.attrs({
    @media (min-height: 1000px){
     width: 62rem;
     right: 8%;
- 
-
     }
 
 
@@ -37,8 +35,14 @@ const AlinhamentoImagem = styled.div`
   display:flex;
   justify-content: center;
   align-items: center;
-  
+  left: -5%;
+
+  @media (max-width: 1111px) {
+
+    left: 0%;
+  }
   `
+
   const rotate = keyframes`
   from {
     transform: rotate(0deg);
@@ -85,17 +89,15 @@ const AlinhamentoConteudo = styled.section`
 
 @media (max-width: 1111px) {
 
-  align-items:center;
+  align-items: center;
   justify-content: center;
-}
-@media (min-height: 750px) {
-  margin-top: 5%;
-}
-@media (min-height: 1000px){
-
+  text-align: center;
 }
 
+@media (max-width: 1111px) {
+   margin-top: -15%;
 
+}
 `
 
 const Titulo = styled.h1`
@@ -112,11 +114,12 @@ const AlinhamentoTexto = styled.div`
 display:flex;
 position: relative;
 flex-direction: column;
-margin: 15% 0% 0% 0%;
-width: 390px;
+height: 100vh;
+width: 418px;
+justify-content: center;
 
 @media (min-height: 750px){
-  width: 450px;
+  width: 460px;
 }
 
 @media (min-height: 1000px){
@@ -131,10 +134,8 @@ font-size: 15px;
 @media (min-height: 750px){
  font-size: 20px;}
 
- @media (min-height: 1000px){
+@media (min-height: 1000px){
   font-size: 30px;
-
-
  }
 `
 
@@ -145,16 +146,16 @@ color: red;
 export function Intro(){
     return(
 <AlinhamentoConteudo>
-<AlinhamentoTexto className='text-center'>
-<Titulo >Transforming Ideas Into <Color>Digital Reality </Color></Titulo>
-<Texto > Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, impedit ducimus dicta explicabo deserunt unde nobis voluptas natus quam tenetur quia delectus at deleniti adipisci, atque doloremque quae. Facere, aliquam.</Texto>
-<AlinhamentoImagem>
-<ImagemProject/>
-<Seta>
-<BsArrowRight/>
-</Seta>
-</AlinhamentoImagem>
-</AlinhamentoTexto>
-<ImagemEu/>
+  <AlinhamentoTexto>
+    <Titulo >Transforming Ideas Into <Color>Digital Reality </Color></Titulo>
+      <Texto > Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, impedit ducimus dicta explicabo deserunt unde nobis voluptas natus quam tenetur quia delectus at deleniti adipisci, atque doloremque quae. Facere, aliquam.</Texto>
+        <AlinhamentoImagem>
+          <ImagemProject/>
+            <Seta>
+              <BsArrowRight/>
+            </Seta>
+        </AlinhamentoImagem>
+  </AlinhamentoTexto>
+ <ImagemEu/>
 </AlinhamentoConteudo>)}
 

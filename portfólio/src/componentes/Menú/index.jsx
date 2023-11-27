@@ -1,6 +1,7 @@
 import "boxicons"
 import styled from 'styled-components';
 import { useState } from "react";
+import { BsLinkedin, BsDiscord, BsWhatsapp, BsGithub} from 'react-icons/bs';
 
 
 const IconesMenu = [
