@@ -101,10 +101,12 @@ const NavContainer =  styled.div`
     <NavContainer>
       <Icones>
       <AlinhaPopUp>
+      <Link to="/Home">
       <BiHomeAlt
       onMouseEnter={() => setPopupVisibility({...popupVisibility, popup1: true})} 
       onMouseLeave={() => setPopupVisibility({...popupVisibility, popup1: false})}
       /> 
+      </Link>
       <PopUp style={{visibility: popupVisibility.popup1 ? 'visible' : 'hidden'}}><PopUpContent>Home</PopUpContent></PopUp>
       </AlinhaPopUp>
       <AlinhaPopUp> 
