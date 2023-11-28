@@ -4,7 +4,7 @@ import {BsArrowRight} from'react-icons/bs'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const ImagemEu = styled.img.attrs({
-    src:'/src/componentes/BodyInIcial/i3.png',
+    src:'/src/componentes/Páginas/Home/i3.png',
   })`
     position: fixed;
     max-width: 100%;
@@ -55,7 +55,7 @@ const AlinhamentoImagem = styled.div`
 
 const ImagemProject = styled.img.attrs({
 
-src:'/src/componentes/BodyInIcial/projects.png',})`
+src:'/src/componentes/Páginas/Home/projects.png',})`
 width: 10rem;
 position: relative;
 bottom: 5%;

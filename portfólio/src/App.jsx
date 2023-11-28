@@ -2,7 +2,7 @@
 import {Cabecalho} from './componentes/Cabecalho'
 import GlobalStyled from './componentes/GlobalStyled'
 import { Menu } from './componentes/Menú'
-import { Intro } from './componentes/BodyInicial'
+import { ConteudoDaPagina } from './componentes/Páginas/Paginação'
 
 
 
@@ -12,7 +12,7 @@ function App() {
     <GlobalStyled />
     <Cabecalho/>
     <Menu/>
-    <Intro/>
+    <ConteudoDaPagina/>
     </>
   )
 }
