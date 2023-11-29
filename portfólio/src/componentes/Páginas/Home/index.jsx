@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { keyframes } from 'styled-components';
 import {BsArrowRight} from'react-icons/bs'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import {motion} from "framer-motion"
+import { duration } from '@mui/material';
 
 const ImagemEu = styled.img.attrs({
     src:'/src/componentes/Páginas/Home/i3.png',
@@ -96,7 +98,6 @@ const AlinhamentoConteudo = styled.section`
 
 @media (max-width: 1111px) {
    margin-top: -15%;
-
 }
 `
 
@@ -143,8 +144,28 @@ const Color = styled.strong`
 color: red;
 `
 
+const transitionVariants = {
+  initial: {
+   x: '100%',
+   width: '0%'
+  },
+  animate: {
+    x: '100%',
+    width: '0%'
+    
+  },
+  exit: {
+    x: ['0%', '100%'],
+    width: ['0%', '100%']
+  }
+}
+
 export function Intro(){
     return(
+<motion.div
+variants={transitionVariants}
+transition={{delay: 0.2, duration: 0.6, ease: 'easeInOut'}}
+>
 <AlinhamentoConteudo>
   <AlinhamentoTexto>
     <Titulo >Transforming Ideas Into <Color>Digital Reality </Color></Titulo>
@@ -152,10 +173,11 @@ export function Intro(){
         <AlinhamentoImagem>
           <ImagemProject/>
             <Seta>
-              <BsArrowRight/>
-            </Seta>
-        </AlinhamentoImagem>
-  </AlinhamentoTexto>
+          <BsArrowRight/>
+        </Seta>
+      </AlinhamentoImagem>
+    </AlinhamentoTexto>
  <ImagemEu/>
-</AlinhamentoConteudo>)}
+</AlinhamentoConteudo>
+</motion.div>)}
 
