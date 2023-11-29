@@ -2,7 +2,7 @@ import "boxicons"
 import styled from 'styled-components';
 import { useState } from "react";
 import { BiHomeAlt, BiEnvelope, BiEdit, BiUser} from "react-icons/bi"; 
-import { Link } from 'react-router-dom';
+import { NavLink as BaseNavLink } from 'react-router-dom';
 
 
 
@@ -34,7 +34,7 @@ const EstilizacaoIcones = styled.div`
 const Icones = styled.div`
 display: flex;
 flex-direction: column;
-gap: 20px;
+gap: 13px;
 font-size: 22px;
 `
 
@@ -46,7 +46,6 @@ const AlinhaPopUp = styled.div`
 
   & :hover {
   color: red;
-
   }
 `
 
@@ -86,51 +85,65 @@ const NavContainer =  styled.div`
     position:relative;
     align-items: center;
     color: white;`
+
+const NavLink = styled(BaseNavLink)`
+color: white;
+
+&.active {
+  color: red;
+}
+`;
     
- export function Menu (){
-  
-  const [popupVisibility, setPopupVisibility] = useState({
-    popup1: false,
-    popup2: false,
-    popup3: false,
-    popup4: false
-   });
-    
-  return (
-<EstilizacaoIcones>
-    <NavContainer>
-      <Icones>
-      <AlinhaPopUp>
-      <Link to="/Home">
-      <BiHomeAlt
-      onMouseEnter={() => setPopupVisibility({...popupVisibility, popup1: true})} 
-      onMouseLeave={() => setPopupVisibility({...popupVisibility, popup1: false})}
-      /> 
-      </Link>
-      <PopUp style={{visibility: popupVisibility.popup1 ? 'visible' : 'hidden'}}><PopUpContent>Home</PopUpContent></PopUp>
-      </AlinhaPopUp>
-      <AlinhaPopUp> 
-      <BiUser
-      onMouseEnter={() => setPopupVisibility({...popupVisibility, popup2: true})} 
-      onMouseLeave={() => setPopupVisibility({...popupVisibility, popup2: false})}
-      />
-      <PopUp style={{visibility: popupVisibility.popup2 ? 'visible' : 'hidden'}}><PopUpContent>About me</PopUpContent></PopUp>
-      </AlinhaPopUp> 
-      <AlinhaPopUp>
-      <BiEnvelope
-      onMouseEnter={() => setPopupVisibility({...popupVisibility, popup3: true})} 
-      onMouseLeave={() => setPopupVisibility({...popupVisibility, popup3: false})}
-      />
-      <PopUp style={{visibility: popupVisibility.popup3 ? 'visible' : 'hidden'}}><PopUpContent>Talk to me</PopUpContent></PopUp>
-      </AlinhaPopUp>
-      <AlinhaPopUp>
-      <BiEdit
-       onMouseEnter={() => setPopupVisibility({...popupVisibility, popup4: true})} 
-       onMouseLeave={() => setPopupVisibility({...popupVisibility, popup4: false})}
-      />
-      <PopUp style={{visibility: popupVisibility.popup4 ? 'visible' : 'hidden'}}><PopUpContent>Projects</PopUpContent></PopUp>
-      </AlinhaPopUp>
-      </Icones>
-    </NavContainer>
-</EstilizacaoIcones>  
-)}
+    export function Menu() {
+      const [popupVisibility, setPopupVisibility] = useState({
+        popup1: false,
+        popup2: false,
+        popup3: false,
+        popup4: false
+      });
+     
+      return (
+        <EstilizacaoIcones>
+          <NavContainer>
+            <Icones>
+              <AlinhaPopUp>
+              <NavLink to="/Home" className={({ isActive }) => (isActive ? 'active' : '')}>
+                  <BiHomeAlt
+                    onMouseEnter={() => setPopupVisibility({...popupVisibility, popup1: true})} 
+                    onMouseLeave={() => setPopupVisibility({...popupVisibility, popup1: false})}
+                  /> 
+                </NavLink>
+                <PopUp style={{visibility: popupVisibility.popup1 ? 'visible' : 'hidden'}}><PopUpContent>Home</PopUpContent></PopUp>
+              </AlinhaPopUp>
+              <AlinhaPopUp> 
+                <NavLink to="/About_Me" className={({ isActive }) => (isActive ? 'active' : '')}>
+                  <BiUser
+                    onMouseEnter={() => setPopupVisibility({...popupVisibility, popup2: true})} 
+                    onMouseLeave={() => setPopupVisibility({...popupVisibility, popup2: false})}
+                  />
+                </NavLink>
+                <PopUp style={{visibility: popupVisibility.popup2 ? 'visible' : 'hidden'}}><PopUpContent>About me</PopUpContent></PopUp>
+              </AlinhaPopUp> 
+              <AlinhaPopUp>
+                <NavLink to="/Talk_To_Me" className={({ isActive }) => (isActive ? 'active' : '')}>
+                  <BiEnvelope
+                    onMouseEnter={() => setPopupVisibility({...popupVisibility, popup3: true})} 
+                    onMouseLeave={() => setPopupVisibility({...popupVisibility, popup3: false})}
+                  />
+                </NavLink>
+                <PopUp style={{visibility: popupVisibility.popup3 ? 'visible' : 'hidden'}}><PopUpContent>Talk to me</PopUpContent></PopUp>
+              </AlinhaPopUp>
+              <AlinhaPopUp>
+                <NavLink to="/Projects" className={({ isActive }) => (isActive ? 'active' : '')}>
+                  <BiEdit
+                    onMouseEnter={() => setPopupVisibility({...popupVisibility, popup4: true})} 
+                    onMouseLeave={() => setPopupVisibility({...popupVisibility, popup4: false})}
+                  />
+                </NavLink>
+                <PopUp style={{visibility: popupVisibility.popup4 ? 'visible' : 'hidden'}}><PopUpContent>Projects</PopUpContent></PopUp>
+              </AlinhaPopUp>
+            </Icones>
+          </NavContainer>
+        </EstilizacaoIcones> 
+      );
+     }

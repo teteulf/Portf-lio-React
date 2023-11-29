@@ -6,7 +6,6 @@ import { TalkToMe } from '../Talk To Me';
 
 export function ConteudoDaPagina(){
  return(
-     <Router>
      <Routes>
        <Route path="/" element={<Navigate to="/Home" />} />
        <Route path="/Home" element={<Intro/>} />
@@ -14,6 +13,5 @@ export function ConteudoDaPagina(){
        <Route path="/Projects" element={<Projects/>} />
        <Route path="/Talk_To_Me" element={<TalkToMe/>} />
      </Routes>
-   </Router>
  );
  }
