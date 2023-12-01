@@ -152,7 +152,6 @@ const transitionVariants = {
   animate: {
     x: '100%',
     width: '0%'
-    
   },
   exit: {
     x: ['0%', '100%'],
@@ -160,9 +159,13 @@ const transitionVariants = {
   }
 }
 
+const MotionDiv = styled(motion.div)`
+ background-color: blue;
+`;
+
 export function Intro(){
     return(
-<motion.div
+<motionDiv
 variants={transitionVariants}
 transition={{delay: 0.2, duration: 0.6, ease: 'easeInOut'}}
 >
@@ -179,5 +182,5 @@ transition={{delay: 0.2, duration: 0.6, ease: 'easeInOut'}}
     </AlinhamentoTexto>
  <ImagemEu/>
 </AlinhamentoConteudo>
-</motion.div>)}
+</motionDiv>)}
 
