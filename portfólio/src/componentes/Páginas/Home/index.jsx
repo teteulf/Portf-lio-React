@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { keyframes } from 'styled-components';
 import {BsArrowRight} from'react-icons/bs'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {motion} from "framer-motion"
-import { duration } from '@mui/material';
+
+
 
 const ImagemEu = styled.img.attrs({
     src:'/src/componentes/Páginas/Home/i3.png',
@@ -144,31 +144,9 @@ const Color = styled.strong`
 color: red;
 `
 
-const transitionVariants = {
-  initial: {
-   x: '100%',
-   width: '0%'
-  },
-  animate: {
-    x: '100%',
-    width: '0%'
-  },
-  exit: {
-    x: ['0%', '100%'],
-    width: ['0%', '100%']
-  }
-}
-
-const MotionDiv = styled(motion.div)`
- background-color: blue;
-`;
 
 export function Intro(){
     return(
-<motionDiv
-variants={transitionVariants}
-transition={{delay: 0.2, duration: 0.6, ease: 'easeInOut'}}
->
 <AlinhamentoConteudo>
   <AlinhamentoTexto>
     <Titulo >Transforming Ideas Into <Color>Digital Reality </Color></Titulo>
@@ -182,5 +160,5 @@ transition={{delay: 0.2, duration: 0.6, ease: 'easeInOut'}}
     </AlinhamentoTexto>
  <ImagemEu/>
 </AlinhamentoConteudo>
-</motionDiv>)}
+)}
 
