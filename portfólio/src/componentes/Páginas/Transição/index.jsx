@@ -1,48 +1,81 @@
-import {motion} from 'framer-motion'
-import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 
-const AnimatedDiv = styled(motion.div)`
-.slide-in{
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100vh;
-background: #9292f5;
-transform-origin: bottom;
-}
+const Transicao = () => {
+  const location = useLocation();
+  const [isInitialRender, setIsInitialRender] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
 
-.slide-out{
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100vh;
-background: #9292f5;
-transform-origin: top;
-}
-`;
+  useEffect(() => {
+    if (!isInitialRender) {
+      setIsAnimating(true);
+    } else {
+      setIsInitialRender(false);
+    }
+  }, [location.pathname]);
+  const handleAnimationComplete = () => {
+    setIsAnimating(false);
+  };
 
-export function Transição({ children }) {
-    return (
-      <><div >
-          {children}
-        </div>
-        <AnimatedDiv
-          className='slide-in'
-          initial={{ scaleY: 1 }}
-          animate={{ scaleY: 0 }}
-          exit={{ scaleY: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+  return (
+    
+    <AnimatePresence initial={false} mode='wait'>
+      {isAnimating && (<>
+        <motion.div
+          key={location.pathname}
+          initial={{ x: '-100%', width: '100%' }}
+          animate={{ x: 0, width: '100%' }}
+          exit={{ x: '-100%', width: '100%'}}
+          transition={{ duration: 1, ease: 'easeInOut' }}
+          onAnimationComplete={handleAnimationComplete}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100vh',
+            background: '#04042c',
+            zIndex: '999',
+          }}
         />
-        <AnimatedDiv
-          className='slide-out'
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: 1 }}
-          exit={{ scaleY: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        <motion.div
+          key={location.pathname}
+          initial={{ x: '-100%', width: '100%' }}
+          animate={{ x: 80, width: '100%' }}
+          exit={{ x: '-100%', width: '100%' , transition: {duration: 0.9, delay: 0.3 } }}
+          transition={{ duration: 1.2, ease: 'easeInOut' }}
+          onAnimationComplete={handleAnimationComplete}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100vh',
+            background: '#3a3abac1',
+            zIndex: '998',
+          }}
         />
-        
-      </>
-    );
-  }
+          <motion.div
+          key={location.pathname}
+          initial={{ x: '-100%', width: '100%' }}
+          animate={{ x: 80, width: '100%' }}
+          exit={{ x: '-100%', width: '100%' , transition: {duration: 1, delay: 0.4 } }}
+          transition={{ duration: 1.2, ease: 'easeInOut' }}
+          onAnimationComplete={handleAnimationComplete}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100vh',
+            background: '#9c9cf495',
+            zIndex: '998',
+          }}
+        />
+      </>)}
+    </AnimatePresence>
+  );
+};
+
+export default Transicao;

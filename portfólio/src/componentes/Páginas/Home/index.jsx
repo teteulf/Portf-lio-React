@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 
+
 const ImagemEu = styled.img.attrs({
     src:'/src/componentes/Páginas/Home/i3.png',
   })`
@@ -161,4 +162,6 @@ export function Intro(){
  <ImagemEu/>
 </AlinhamentoConteudo>
 )}
+
+
 
