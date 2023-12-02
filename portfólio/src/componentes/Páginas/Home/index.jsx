@@ -130,8 +130,8 @@ width: 620px
 `
 
 const Texto = styled.p`
-color: white;
-font-size: 15px;
+color: #ffffffd6;
+font-size: 13px;
 
 @media (min-height: 750px){
  font-size: 20px;}
@@ -143,6 +143,7 @@ font-size: 15px;
 
 const Color = styled.strong`
 color: red;
+font-weight: 900;
 `
 
 
@@ -150,8 +151,8 @@ export function Intro(){
     return(
 <AlinhamentoConteudo>
   <AlinhamentoTexto>
-    <Titulo >Transforming Ideas Into <Color>Digital Reality </Color></Titulo>
-      <Texto > Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, impedit ducimus dicta explicabo deserunt unde nobis voluptas natus quam tenetur quia delectus at deleniti adipisci, atque doloremque quae. Facere, aliquam.</Texto>
+    <Titulo ><strong>Transforming Ideas Into <Color>Digital Reality </Color></strong></Titulo>
+      <Texto > Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores, fugiat? Reiciendis laudantium ex necessitatibus et corrupti sed repudiandae, corporis possimus quas omnis ab quidem. Ratione doloremque maiores necessitatibus tempore. Soluta.</Texto>
         <AlinhamentoImagem>
           <ImagemProject/>
             <Seta>

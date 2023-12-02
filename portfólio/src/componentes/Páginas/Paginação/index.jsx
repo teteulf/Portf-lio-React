@@ -9,14 +9,15 @@ export function ConteudoDaPagina() {
   const location = useLocation();
 
   return (
-    <>
-      <Transicao />
+  <>
+  <Transicao />
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Navigate to="/Home" />} />
+        <Route path="/" element={<Intro />} />
         <Route path="/Home" element={<Intro />} />
         <Route path="/About_Me" element={<AboutMe />} />
         <Route path="/Projects" element={<Projects />} />
         <Route path="/Talk_To_Me" element={<TalkToMe />} />
+        <Route path="*" element={<div>'Página não encontrada'</div>}/>
       </Routes>
     </>
   );

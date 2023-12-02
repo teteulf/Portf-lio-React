@@ -2,7 +2,7 @@ import "boxicons"
 import styled from 'styled-components';
 import { useState } from "react";
 import { BiHomeAlt, BiEnvelope, BiEdit, BiUser} from "react-icons/bi"; 
-import { NavLink as BaseNavLink } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 
 
 
@@ -86,7 +86,7 @@ const NavContainer =  styled.div`
     align-items: center;
     color: white;`
 
-const NavLink = styled(BaseNavLink)`
+const TagLink = styled(NavLink)`
 color: white;
 
 &.active {
@@ -95,6 +95,7 @@ color: white;
 `;
     
     export function Menu() {
+
       const [popupVisibility, setPopupVisibility] = useState({
         popup1: false,
         popup2: false,
@@ -107,39 +108,39 @@ color: white;
           <NavContainer>
             <Icones>
               <AlinhaPopUp>
-              <NavLink to="/Home" className={({ isActive }) => (isActive ? 'active' : '')}>
+              <TagLink to="/Home" className={({ isActive }) => `${isActive ? styled.active : ""}`}>
                   <BiHomeAlt
                     onMouseEnter={() => setPopupVisibility({...popupVisibility, popup1: true})} 
                     onMouseLeave={() => setPopupVisibility({...popupVisibility, popup1: false})}
                   /> 
-                </NavLink>
+                </TagLink>
                 <PopUp style={{visibility: popupVisibility.popup1 ? 'visible' : 'hidden'}}><PopUpContent>Home</PopUpContent></PopUp>
               </AlinhaPopUp>
               <AlinhaPopUp> 
-                <NavLink to="/About_Me" className={({ isActive }) => (isActive ? 'active' : '')}>
+              <TagLink to="/About_Me" className={({ isActive }) => `${isActive ? styled.active : ""}`}>
                   <BiUser
                     onMouseEnter={() => setPopupVisibility({...popupVisibility, popup2: true})} 
                     onMouseLeave={() => setPopupVisibility({...popupVisibility, popup2: false})}
                   />
-                </NavLink>
+                </TagLink>
                 <PopUp style={{visibility: popupVisibility.popup2 ? 'visible' : 'hidden'}}><PopUpContent>About me</PopUpContent></PopUp>
               </AlinhaPopUp> 
               <AlinhaPopUp>
-                <NavLink to="/Talk_To_Me" className={({ isActive }) => (isActive ? 'active' : '')}>
+              <TagLink to="/Talk_To_Me" className={({ isActive }) => `${isActive ? styled.active : ""}`}>
                   <BiEnvelope
                     onMouseEnter={() => setPopupVisibility({...popupVisibility, popup3: true})} 
                     onMouseLeave={() => setPopupVisibility({...popupVisibility, popup3: false})}
                   />
-                </NavLink>
+                </TagLink>
                 <PopUp style={{visibility: popupVisibility.popup3 ? 'visible' : 'hidden'}}><PopUpContent>Talk to me</PopUpContent></PopUp>
               </AlinhaPopUp>
               <AlinhaPopUp>
-                <NavLink to="/Projects" className={({ isActive }) => (isActive ? 'active' : '')}>
+              <TagLink to="/Projects" className={({ isActive }) => `${isActive ? styled.active : ""}`}>
                   <BiEdit
                     onMouseEnter={() => setPopupVisibility({...popupVisibility, popup4: true})} 
                     onMouseLeave={() => setPopupVisibility({...popupVisibility, popup4: false})}
                   />
-                </NavLink>
+                </TagLink>
                 <PopUp style={{visibility: popupVisibility.popup4 ? 'visible' : 'hidden'}}><PopUpContent>Projects</PopUpContent></PopUp>
               </AlinhaPopUp>
             </Icones>
