@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-
 const GlobalStyled = createGlobalStyle`
 html{margin: 0;
     height: 100vh;
@@ -12,10 +11,15 @@ height: 100vh;
 background-color: #000014;
 scrollbar-width: none;
 overflow: hidden;
-/* -ms-overflow-style: none;
-animation: fadeInAnimation ease 6s;
+-ms-overflow-style: none;
+animation: fadeInAnimation ease 5s;
 animation-iteration-count: 1;
-animation-fill-mode: forwards; */
+animation-fill-mode: forwards;
+/* background-image: url('./src/componentes/GlobalStyled/BackGround2.png'); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -10; */
 
 &::-webkit-scrollbar {
   display: none;}
@@ -34,6 +38,12 @@ animation-fill-mode: forwards; */
 }
 };
 
-*{font-family:"Sora";}
-` 
-export default GlobalStyled
+*:focus-visible {
+    outline: none;
+  }
+  
+  *{font-family:"Sora";}
+
+`;
+
+export default GlobalStyled;
