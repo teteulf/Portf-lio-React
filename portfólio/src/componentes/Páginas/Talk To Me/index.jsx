@@ -129,7 +129,7 @@ export function TalkToMe() {
           onSubmit={(event) => {
             const input = getInput(event);
             checkInput(input);
-            confirmed ? postSubmit(input) : setIsOpen(true);
+            postSubmit(input);
           }}
         >
           <h1
