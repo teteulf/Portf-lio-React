@@ -109,13 +109,12 @@ export function TalkToMe() {
   };
 
   const postSubmit = (input) => {
-    console.log(!confirmed);
     if (confirmed) {
+      //alterar essa promise de exemplo
       new Promise((res) => {
         res({ error: "" });
       })
         .then((data) => {
-          console.log(data);
           data.error ? setConfirmed(false) : setConfirmed(true);
         })
         .finally(() => {
