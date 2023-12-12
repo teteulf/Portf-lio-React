@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const Alinhamento = styled.main`
@@ -60,32 +61,78 @@ const FormContainer = styled.form`
   }
 `;
 
-const Dialogue = styled.dialog`
-  position: absolute;
+const Dialog = styled.span`
+  position: fixed;
   width: 200px;
   height: 100px;
   background-color: white;
   text-align: center;
+  top: 50%;
 
   &::backdrop {
     background-color: #03011acc;
   }
 
   .buttonDialog {
-    position: relative;
-    top: 70%;
-    right: 16%;
     width: 80px;
     height: 20px;
   }
 `;
 
 export function TalkToMe() {
-  const modal = document.querySelector(".ModalDialogue");
+  const [isOpen, setIsOpen] = useState(false);
+  const [confirmed, setConfirmed] = useState(false);
+
+  const getInput = (event) => {
+    event.preventDefault();
+
+    const submitInput = {};
+
+    const elementsInput = event.target.querySelectorAll("input");
+
+    elementsInput.forEach((element) => {
+      const type = element.placeholder.toLowerCase();
+      const input = element.value;
+
+      submitInput[type] = input;
+    });
+
+    return submitInput;
+  };
+
+  const checkInput = (input) => {
+    let check = true;
+    for (let value of Object.values(input)) {
+      value === "" && (check = false);
+    }
+    setConfirmed(check);
+  };
+
+  const postSubmit = (input) => {
+    console.log(!confirmed);
+    if (confirmed) {
+      new Promise((res) => {
+        res({ error: "" });
+      })
+        .then((data) => {
+          console.log(data);
+          data.error ? setConfirmed(false) : setConfirmed(true);
+        })
+        .finally(() => {
+          setIsOpen(true);
+        });
+    }
+  };
   return (
     <>
       <Alinhamento>
-        <FormContainer>
+        <FormContainer
+          onSubmit={(event) => {
+            const input = getInput(event);
+            checkInput(input);
+            confirmed ? postSubmit(input) : setIsOpen(true);
+          }}
+        >
           <h1
             style={{
               color: "white",
@@ -103,38 +150,39 @@ export function TalkToMe() {
           </div>
           <input className="inputDefault inputSubject" placeholder="Subject" />
           <input className="inputDefault inputMessage" placeholder="Message" />
-          <input
-            type="button"
-            className="inputButton"
-            value={"Send"}
-            onClick={() => {
-              modal.showModal();
-            }}
-          />
+          <button type="submit" className="inputButton">
+            Send
+          </button>
         </FormContainer>
       </Alinhamento>
-      <Dialogue className="ModalDialogue">
-        Email enviado com sucesso!
-        <button
-          className="buttonDialog"
-          onClick={() => {
-            modal.close();
-          }}
-        >
-          Ok
-        </button>
-      </Dialogue>
-      <Dialogue>
-        Por favor preencha todos os campos.
-        <button
-          className="buttonDialog"
-          onClick={() => {
-            modal.close();
-          }}
-        >
-          Ok
-        </button>
-      </Dialogue>
+      {isOpen &&
+        (confirmed ? (
+          <Dialog>
+            Email enviado com sucesso!
+            <button
+              className="buttonDialog"
+              onClick={() => {
+                setIsOpen(false);
+                setConfirmed(false);
+              }}
+            >
+              Ok
+            </button>
+          </Dialog>
+        ) : (
+          <Dialog>
+            Por favor preencha todos os campos.
+            <button
+              className="buttonDialog"
+              onClick={() => {
+                setIsOpen(false);
+                setConfirmed(false);
+              }}
+            >
+              Ok
+            </button>
+          </Dialog>
+        ))}
     </>
   );
 }
