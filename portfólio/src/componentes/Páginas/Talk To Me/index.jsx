@@ -109,18 +109,18 @@ export function TalkToMe() {
   };
 
   const postSubmit = (input) => {
-    if (confirmed) {
-      //alterar essa promise de exemplo
-      new Promise((res) => {
-        res({ error: "" });
+    //alterar essa url de exemplo
+    fetch("http://exemplo/send", {
+      method: "POST",
+      "Content-type": "application/json",
+      body: JSON.stringify(input),
+    })
+      .then((data) => {
+        data.error ? setConfirmed(false) : setConfirmed(true);
       })
-        .then((data) => {
-          data.error ? setConfirmed(false) : setConfirmed(true);
-        })
-        .finally(() => {
-          setIsOpen(true);
-        });
-    }
+      .finally(() => {
+        setIsOpen(true);
+      });
   };
   return (
     <>
@@ -129,7 +129,7 @@ export function TalkToMe() {
           onSubmit={(event) => {
             const input = getInput(event);
             checkInput(input);
-            postSubmit(input);
+            confirmed ? postSubmit(input) : setIsOpen(true);
           }}
         >
           <h1
