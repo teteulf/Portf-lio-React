@@ -116,7 +116,7 @@ export function TalkToMe() {
       body: JSON.stringify(input),
     })
       .then((data) => {
-        data.error ? setConfirmed(false) : setConfirmed(true);
+        data.status === 400 ? setConfirmed(false) : setConfirmed(true);
       })
       .finally(() => {
         setIsOpen(true);
