@@ -109,7 +109,7 @@ export function TalkToMe() {
   };
 
   const postSubmit = (input) => {
-    fetch("https://send-email-vulgo-rnt.vercel.app", {
+    fetch("https://send-email-teteu.vercel.app", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(input),
