@@ -84,8 +84,6 @@ export function TalkToMe() {
   const [confirmed, setConfirmed] = useState(false);
 
   const getInput = (event) => {
-    event.preventDefault();
-
     const submitInput = {};
 
     const elementsInput = event.target.querySelectorAll("input");
@@ -103,22 +101,24 @@ export function TalkToMe() {
   const checkInput = (input) => {
     let check = true;
     for (let value of Object.values(input)) {
-      value === "" && (check = false);
+      if (value === "") {
+        check = false;
+      }
     }
-    setConfirmed(check);
+    return check;
   };
 
   const postSubmit = (input) => {
-    //alterar essa url de exemplo
-    fetch("http://exemplo/send", {
+    fetch("https://send-email-vulgo-rnt.vercel.app", {
       method: "POST",
-      "Content-type": "application/json",
+      headers: { "Content-type": "application/json" },
       body: JSON.stringify(input),
     })
       .then((data) => {
-        data.error ? setConfirmed(false) : setConfirmed(true);
+        data.status === 400 ? setConfirmed(false) : setConfirmed(true);
       })
       .finally(() => {
+        console.log("fetch true");
         setIsOpen(true);
       });
   };
@@ -127,8 +127,10 @@ export function TalkToMe() {
       <Alinhamento>
         <FormContainer
           onSubmit={(event) => {
+            event.preventDefault();
             const input = getInput(event);
-            checkInput(input);
+            const confirmed = checkInput(input);
+            console.log(confirmed);
             confirmed ? postSubmit(input) : setIsOpen(true);
           }}
         >
