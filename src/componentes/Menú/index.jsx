@@ -42,7 +42,7 @@ const Icones = styled.div`
   @media (max-width: 900px) {
     flex-direction: row;
     justify-content: center;
-    gap: 100%;
+    gap: 20vw;
   }
 `;
 

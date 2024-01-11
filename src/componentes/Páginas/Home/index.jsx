@@ -51,6 +51,10 @@ const ImageBackGround = styled.img.attrs({
 
   right: 3%;
   bottom: 0%;
+
+  @media (max-width: 1111px) {
+    visibility: hidden;
+  }
 `;
 
 const AlinhamentoImagens = styled.div`

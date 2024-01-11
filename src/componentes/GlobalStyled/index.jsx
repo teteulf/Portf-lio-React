@@ -24,7 +24,7 @@ animation-fill-mode: forwards;
 &::-webkit-scrollbar {
   display: none;}
 
-@media (max-width: 643px) {
+@media (max-width: 780px) {
     margin: 0% 0%;
 }
 
